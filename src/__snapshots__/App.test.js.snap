@@ -55,6 +55,9 @@ exports[`renders correctly 1`] = `
         Golang
       </li>
     </ul>
+    <p>
+      ...loading...
+    </p>
   </div>
 </div>
 `;

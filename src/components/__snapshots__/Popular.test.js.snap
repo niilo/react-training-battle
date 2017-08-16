@@ -52,6 +52,9 @@ exports[`renders default correctly 1`] = `
       Golang
     </li>
   </ul>
+  <p>
+    ...loading...
+  </p>
 </div>
 `;
 
@@ -107,5 +110,8 @@ exports[`renders selected Javascriot correctly 1`] = `
       Golang
     </li>
   </ul>
+  <p>
+    ...loading...
+  </p>
 </div>
 `;

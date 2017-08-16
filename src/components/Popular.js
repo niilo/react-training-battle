@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import RepoGrid from "./RepoGrid";
+import { fetchPopularRepos } from "../util/api";
 
 function SelectedLanguage(props) {
   const languages = [
@@ -44,18 +46,29 @@ class Popular extends Component {
       };
     } else {
       this.state = {
-        selectedLanguage: "All"
+        selectedLanguage: "All",
+        repos: null
       };
     }
     //this.updateLanguage = this.updateLanguage.bind(this);
   }
+  componentDidMount() {
+    this.updateLanguage(this.state.selectedLanguage);
+  }
   updateLanguage = lang => {
     this.setState(() => {
       return {
-        selectedLanguage: lang
+        selectedLanguage: lang,
+        repos: null
       };
     });
+    fetchPopularRepos(this.state.selectedLanguage).then(repos => {
+      this.setState(() => {
+        return { repos: repos };
+      });
+    });
   };
+
   render() {
     return (
       <div>
@@ -63,6 +76,9 @@ class Popular extends Component {
           selectedLanguage={this.state.selectedLanguage}
           onSelect={this.updateLanguage}
         />
+        {!this.state.repos
+          ? <p>...loading...</p>
+          : <RepoGrid repos={this.state.repos} />}
       </div>
     );
   }
