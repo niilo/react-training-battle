@@ -2,62 +2,55 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="App"
+  className="container"
 >
-  <div>
-    <ul
-      className="languages"
+  <ul
+    className="nav"
+  >
+    <li>
+      <a
+        className="active"
+        href="/"
+        onClick={[Function]}
+        style={Object {}}
+      >
+        Home
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="/battle"
+        onClick={[Function]}
+        style={undefined}
+      >
+        Battle
+      </a>
+    </li>
+    <li>
+      <a
+        className={undefined}
+        href="/popular"
+        onClick={[Function]}
+        style={undefined}
+      >
+        Popular
+      </a>
+    </li>
+  </ul>
+  <div
+    className="home-container"
+  >
+    <h1>
+      Gihub Battle: Battle your friends:
+    </h1>
+    <a
+      className="button"
+      href="/battle"
+      onClick={[Function]}
     >
-      <li
-        onClick={[Function]}
-        style={
-          Object {
-            "color": "#d0021b",
-          }
-        }
-      >
-        All
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        JavaScript
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        Ruby
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        Java
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        CSS
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        Python
-      </li>
-      <li
-        onClick={[Function]}
-        style={null}
-      >
-        Golang
-      </li>
-    </ul>
-    <p>
-      ...loading...
-    </p>
+      Battle
+    </a>
   </div>
 </div>
 `;
