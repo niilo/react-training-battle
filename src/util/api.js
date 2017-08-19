@@ -1,12 +1,7 @@
-export async function battle(players) {
-  try {
-    return await sortPlayers(players.map(getUserData));
-  } catch (error) {
-    return handleError(error);
-  }
-  /*return Axios.all([players.map(getUserData)])
+export function battle(players) {
+  return Promise.all(players.map(getUserData))
     .then(sortPlayers)
-    .catch(handleError);*/
+    .catch(handleError);
 }
 
 function getProfile(username) {
