@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import queryString from "query-string";
 import { Link } from "react-router-dom";
 import Player from "./Player";
+import Loading from "./Loading";
 import { battle } from "../util/api";
 
 class Results extends Component {
@@ -48,7 +49,7 @@ class Results extends Component {
     const loading = this.state.loading;
 
     if (loading === true) {
-      return <p>Loading...</p>;
+      return <Loading text="downloading" speed={100} />;
     }
 
     if (error) {
