@@ -63,7 +63,7 @@ class Popular extends Component {
         repos: null
       };
     });
-    fetchPopularRepos(this.state.selectedLanguage).then(repos => {
+    fetchPopularRepos(lang).then(repos => {
       this.setState(() => {
         return { repos: repos };
       });
