@@ -53,7 +53,7 @@ const Battle = props => {
         <Link
           className="button"
           to={{
-            pathname: match + "/results",
+            pathname: match.url + "/results",
             search:
               "?playerOneName=" +
               playerOneName +
