@@ -1,52 +1,19 @@
 import React, { Component } from "react";
-import queryString from "query-string";
 import { Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
 import Player from "./Player";
 import Loading from "./Loading";
-import { battle } from "../util/api";
+import { doFight } from "../results/actions";
 
 class Results extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      winner: null,
-      loser: null,
-      error: null,
-      loading: true
-    };
-  }
-
   componentDidMount() {
-    if (!this.props.location) {
-      return <p>missing players</p>;
-    }
-    const players = queryString.parse(this.props.location.search);
-    battle([players.playerOneName, players.playerTwoName]).then(results => {
-      if (results === null) {
-        return this.setState(() => {
-          return {
-            error:
-              "Looks like there was error. Check that both users exist on Github",
-            loading: false
-          };
-        });
-      }
-      this.setState(() => {
-        return {
-          error: null,
-          winner: results[0],
-          loser: results[1],
-          loading: false
-        };
-      });
-    });
+    console.log(this.props);
+    const { dispatch } = this.props;
+    dispatch(doFight);
   }
-
   render() {
-    const error = this.state.error;
-    const winner = this.state.winner;
-    const loser = this.state.loser;
-    const loading = this.state.loading;
+    const { error, winner, loser, loading } = this.props.results;
 
     if (loading === true) {
       return <Loading text="downloading" speed={100} />;
@@ -72,4 +39,19 @@ class Results extends Component {
   }
 }
 
-export default Results;
+const mapStateToProps = state => ({
+  playerOne: state.battle.playerOne,
+  playerTwo: state.battle.playerTwo,
+  results: state.results
+});
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators(
+    {
+      doFight,
+      dispatch
+    },
+    dispatch
+  );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Results);

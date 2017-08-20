@@ -13,7 +13,6 @@ import {
 
 const Battle = props => {
   const match = props.match;
-  console.log(props);
   const playerOneName = props.playerOne.name;
   const playerTwoName = props.playerTwo.name;
   const playerOneImage = props.playerOne.image;
