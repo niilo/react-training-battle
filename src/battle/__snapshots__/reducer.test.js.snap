@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders default correctly 1`] = `
+Object {
+  "first": Object {
+    "profile": Object {
+      "avatar_url": "https://avatars3.githubusercontent.com/u/69631?v=4",
+      "followers": 1,
+      "following": 1,
+      "name": "react",
+      "public_repos": 2,
+      "stargazers_count": 73600,
+    },
+  },
+  "second": Object {
+    "profile": Object {
+      "avatar_url": "https://avatars3.githubusercontent.com/u/69631?v=4",
+      "followers": 1,
+      "following": 1,
+      "name": "react2",
+      "public_repos": 2,
+      "stargazers_count": 73600,
+    },
+  },
+}
+`;
